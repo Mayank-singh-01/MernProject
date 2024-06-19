@@ -17,12 +17,6 @@ function Header() {
             MyOrder
           </Link>
         </li>
-        {/* <li>
-          <Link to="Detail" className="hover:text-red-700">detail</Link>
-        </li>
-        <li>
-          <Link to="Support" className="hover:text-red-700">support</Link>
-        </li> */}
       </ul>
     </nav>
   );
