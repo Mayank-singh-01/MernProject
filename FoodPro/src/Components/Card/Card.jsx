@@ -2,16 +2,18 @@ import React from "react";
 
 const Card = () => {
   return (
-    <div className="w-full max-w-xs m-4 border-teal-500 border shadow-xl rounded-lg ">
+    <div className="w-full text-teal-500 max-w-xs m-4 border-teal-500 border shadow-xl rounded-lg ">
       <img
         className="w-full h-48 object-cover"
         src="https://via.placeholder.com/400x300"
         alt="Card image"
       />
-      <div className=" pt-2 text-center font-serif text-xl">Card tital</div>
+      <div className=" pt-2 text-center font-semibold text-red-700  font-serif text-xl">
+        Card tital
+      </div>
       <div className="text-center pt-2 font-serif">importent text in card</div>
 
-      <div className="pt-3 flex justify-evenly">
+      <div className="pt-3 flex font-bold justify-evenly">
         <div className="">
           <label htmlFor="dropdown1" className="block text-gray-700"></label>
           <select
@@ -39,7 +41,7 @@ const Card = () => {
           </select>
         </div>
 
-        <div className="text-xl font-bold text-gray-800">₹99.99</div>
+        <div className="text-xl font-bold">₹99.99</div>
       </div>
     </div>
   );
