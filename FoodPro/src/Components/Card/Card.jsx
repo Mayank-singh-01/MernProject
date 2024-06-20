@@ -2,43 +2,44 @@ import React from "react";
 
 const Card = () => {
   return (
-    <div className="w-full sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="w-full max-w-xs m-4 border-teal-500 border shadow-xl rounded-lg ">
       <img
         className="w-full h-48 object-cover"
         src="https://via.placeholder.com/400x300"
         alt="Card image"
       />
+      <div className=" pt-2 text-center font-serif text-xl">Card tital</div>
+      <div className="text-center pt-2 font-serif">importent text in card</div>
 
-      <div className="p-6">
-        <div className="mb-4">
-          <label htmlFor="dropdown1" className="block text-gray-700">
-            Dropdown 1
-          </label>
+      <div className="pt-3 flex justify-evenly">
+        <div className="">
+          <label htmlFor="dropdown1" className="block text-gray-700"></label>
           <select
             id="dropdown1"
-            className="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="block px-5 py-1 appearance-none text-center border-2 border-teal-500 rounded-lg"
           >
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
+            {Array.from(Array(6), (e, i) => {
+              return (
+                <option key={i + 1} value={i + 1}>
+                  {" "}
+                  {i + 1}
+                </option>
+              );
+            })}
           </select>
         </div>
-
         <div className="mb-4">
-          <label htmlFor="dropdown2" className="block text-gray-700">
-            Dropdown 2
-          </label>
+          <label htmlFor="dropdown1" className="block text-gray-700"></label>
           <select
-            id="dropdown2"
-            className="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            id="dropdown1"
+            className="block py-1 border-2 appearance-none px-4 border-teal-500 rounded-lg"
           >
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
+            <option>Full</option>
+            <option>Half</option>
           </select>
         </div>
 
-        <div className="text-xl font-bold text-gray-800">$99.99</div>
+        <div className="text-xl font-bold text-gray-800">₹99.99</div>
       </div>
     </div>
   );

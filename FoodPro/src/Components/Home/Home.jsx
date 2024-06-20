@@ -7,6 +7,11 @@ export default function Home() {
    <div className='flex justify-center gap-12 flex-wrap'>
     
     <Card/>
+    <Card/>
+    <Card/>
+    <Card/>
+    <Card/>
+    <Card/>
    </div>
 
   )
