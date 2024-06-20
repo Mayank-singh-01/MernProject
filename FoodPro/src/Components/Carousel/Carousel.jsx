@@ -1,0 +1,107 @@
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearchengin
+} from "@fortawesome/free-brands-svg-icons";
+
+const MainComponent = () => {
+  const images = [
+    "../image/pizza3.jpg",
+    "../image/burgar0.jpg",
+    "../image/momos.avif",
+    "../image/pastanew.jpg",
+  ];
+
+  const Carousel = ({ images }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }, [images.length]);
+
+    const handleSearchChange = (e) => {
+      setSearchTerm(e.target.value);
+    };
+
+    const handleSearchSubmit = (e) => {
+      e.preventDefault();
+      // Handle the search submit logic here
+      console.log("Search term submitted:", searchTerm);
+    };
+
+    return (
+      <div className="relative w-screen mt-16 h-96">
+        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-10 w-1/2 mt-8">
+          <form onSubmit={handleSearchSubmit} className="flex items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="flex-grow p-2 text-gray-700 bg-white border border-gray-300 rounded-l-full focus:outline-none focus:border-gray-500"
+            />
+            <button
+              type="submit"
+              className="py-2 px-4 bg-teal-500 text-white rounded-r-full hover:bg-teal-700 focus:outline-none"
+            >
+              <FontAwesomeIcon
+                icon={faSearchengin}
+                style={{ width: "22px", height: "22px",  }}
+              />
+            </button>
+          </form>
+        </div>
+
+        <div className="overflow-hidden relative w-full h-full">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentIndex ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Slide ${index}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        <button
+          onClick={() =>
+            setCurrentIndex(
+              (prevIndex) => (prevIndex - 1 + images.length) % images.length
+            )
+          }
+          className="absolute top-1/2 left-10 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full"
+        >
+          &#10094;
+        </button>
+
+        <button
+          onClick={() =>
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+          }
+          className="absolute top-1/2 right-10 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full"
+        >
+          &#10095;
+        </button>
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      <Carousel images={images} />
+    </div>
+  );
+};
+
+export default MainComponent;

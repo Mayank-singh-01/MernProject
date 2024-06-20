@@ -18,7 +18,7 @@ const Card = () => {
           <label htmlFor="dropdown1" className="block text-gray-700"></label>
           <select
             id="dropdown1"
-            className="block px-5 py-1 appearance-none text-center border-2 border-teal-500 rounded-lg"
+            className="focus:outline-none focus:border-teal-500 block px-5 py-1 appearance-none text-center border-2 border-teal-500 rounded-lg"
           >
             {Array.from(Array(6), (e, i) => {
               return (
@@ -34,7 +34,7 @@ const Card = () => {
           <label htmlFor="dropdown1" className="block text-gray-700"></label>
           <select
             id="dropdown1"
-            className="block py-1 border-2 appearance-none px-4 border-teal-500 rounded-lg"
+            className="focus:outline-none focus:border-teal-500 block py-1 border-2 appearance-none px-4 border-teal-500 rounded-lg"
           >
             <option>Full</option>
             <option>Half</option>

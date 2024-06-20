@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
   return (
-    <nav className="bg-teal-500 font-bold flex text-xl text-white mb-12 p-4">
+    <nav className="bg-teal-400 font-bold flex text-xl text-white z-50 p-4 fixed top-0 w-full">
       <span className=" font-serif pl-12 text-2xl text-red-600">H</span>unger
       <span className="font-serif text-2xl text-red-600">H</span>UB
       <ul className="flex text-lg pl-14 gap-12">
