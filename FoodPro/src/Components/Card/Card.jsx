@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faOpencart} from "@fortawesome/free-brands-svg-icons";
 
 const Card = () => {
   return (
@@ -11,7 +13,6 @@ const Card = () => {
       <div className=" pt-2 text-center font-semibold text-red-700  font-serif text-xl">
         Card tital
       </div>
-      <div className="text-center pt-2 font-serif">importent text in card</div>
 
       <div className="pt-3 flex font-bold justify-evenly">
         <div className="">
@@ -40,8 +41,20 @@ const Card = () => {
             <option>Half</option>
           </select>
         </div>
-
-        <div className="text-xl font-bold">₹99.99</div>
+        <div>
+          <button className="border-2 font-bold border-teal-500 rounded-lg px-2 py-1 ">
+            Add to
+            <FontAwesomeIcon
+              icon={faOpencart}
+              style={{ width: "20px", height: "20px" }}
+            />
+          </button>
+        </div>
+      </div>
+      <div>
+        <p className=" text-lg font-bold text-center text-teal-500 mb-2">
+          Price : ₹99.9
+        </p>
       </div>
     </div>
   );

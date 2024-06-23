@@ -10,12 +10,17 @@ import {
 } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import MyOrder from "./Components/MyOrder/MyOrder";
+import Signup from "./Components/Screen/Signup";
+import Login from "./Components/Screen/Lgin";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<Home />} />
       <Route path="MyOrder" element={<MyOrder />} />
+      <Route path="CreatUser" element={<Signup/>} />
+      <Route path="MyOrder" element={<MyOrder />} />
+      <Route path="LogIn" element={<Login/>} />
     </Route>
   )
 );

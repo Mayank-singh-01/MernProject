@@ -17,6 +17,22 @@ function Header() {
             MyOrder
           </Link>
         </li>
+        <li>
+          <Link
+            to="CreatUser"
+            className="font-serif border-solid border-gray-300  hover:border-gray-400  border-2 rounded-xl p-1 hover:text-red-800"
+          >
+            SignUp
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="LogIn"
+            className="font-serif border-solid border-gray-300  hover:border-gray-400  border-2 rounded-xl p-1 hover:text-red-800"
+          >
+            LogIn
+          </Link>
+        </li>
       </ul>
     </nav>
   );

@@ -9,7 +9,7 @@ import {
 
 function Footer() {
   return (
-    <div className=" bg-teal-400 mt-10 py-2">
+    <div className=" bg-teal-400  py-2">
       <div className="flex justify-center  gap-5">
         <a
           href="https://www.linkedin.com/in/mayank-singh-a76577266/"
