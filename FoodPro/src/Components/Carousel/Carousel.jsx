@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearchengin
-} from "@fortawesome/free-brands-svg-icons";
+import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
 
 const MainComponent = () => {
   const images = [
@@ -34,6 +32,16 @@ const MainComponent = () => {
       console.log("Search term submitted:", searchTerm);
     };
 
+    const handlePrevClick = () => {
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      );
+    };
+
+    const handleNextClick = () => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
+
     return (
       <div className="relative w-screen mt-16 h-96">
         <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-10 w-1/2 mt-8">
@@ -44,14 +52,16 @@ const MainComponent = () => {
               value={searchTerm}
               onChange={handleSearchChange}
               className="flex-grow p-2 text-gray-700 bg-white border border-gray-300 rounded-l-full focus:outline-none focus:border-gray-500"
+              aria-label="Search"
             />
             <button
               type="submit"
               className="py-2 px-4 bg-teal-500 text-white rounded-r-full hover:bg-teal-700 focus:outline-none"
+              aria-label="Submit search"
             >
               <FontAwesomeIcon
                 icon={faSearchengin}
-                style={{ width: "22px", height: "22px",  }}
+                style={{ width: "22px", height: "22px" }}
               />
             </button>
           </form>
@@ -75,21 +85,17 @@ const MainComponent = () => {
         </div>
 
         <button
-          onClick={() =>
-            setCurrentIndex(
-              (prevIndex) => (prevIndex - 1 + images.length) % images.length
-            )
-          }
+          onClick={handlePrevClick}
           className="absolute top-1/2 left-10 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full"
+          aria-label="Previous slide"
         >
           &#10094;
         </button>
 
         <button
-          onClick={() =>
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-          }
+          onClick={handleNextClick}
           className="absolute top-1/2 right-10 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full"
+          aria-label="Next slide"
         >
           &#10095;
         </button>

@@ -2,9 +2,27 @@
    background-image: url("../image/momos.avif");
    background-size: cover;
    background-repeat: no-repeat;
-   /* background-attachment: fixed; */
    height: 100vh;
    display: flex;
    justify-content: center;
    align-items: center;
+}
+.input-field {
+   flex-grow: 1;
+   padding: 7px;
+   color: #4a5568;
+   background-color: #ffffff;
+   border: 1px solid #d1d5db;
+   border-radius: 0.5rem;
+   outline: none;
+}
+
+.input-field:focus {
+   border-color: #a0aec0;
+}
+
+.custom-text {
+   font-family: serif;
+   font-weight: bold;
+   font-size: 1.5rem;
 }

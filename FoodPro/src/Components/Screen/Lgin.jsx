@@ -1,22 +1,23 @@
 import React from "react";
+import "../Screen/app.css";
 
 export default function Login() {
   return (
     <div className="flex background-image ">
       <form className="bg-teal-500 bg-opacity-70 mx-auto p-10 rounded-lg">
-        <p className="font-serif font-bold text-xl">Email</p>
+        <p className="custom-text">Email</p>
         <input
           type="email"
           placeholder="Enter your Email"
           size="60"
-          className="flex-grow p-1 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500"
+          className="input-field"
         />
-        <p className="font-serif font-bold text-xl">Password</p>
+        <p className="custom-text">Password</p>
         <input
           type="text"
           placeholder="Password"
           size="60"
-          className="flex-grow p-1 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500"
+          className="input-field"
         />
 
         <br />
