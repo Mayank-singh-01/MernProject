@@ -9,7 +9,6 @@ export default function Signup() {
     password: "",
     geolocation: "",
   });
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,17 +27,10 @@ export default function Signup() {
       });
 
       const json = await response.json();
-      console.log(json);
-
-      if (json.success) {
-
-        alert("Registration successful!");
-      } else {
-        setErrorMessage("Invalid credentials. Please try again.");
-      }
+      alert(json.message);
     } catch (error) {
       console.error("Error:", error);
-      setErrorMessage("An error occurred. Please try again later.");
+      alert("An error occurred. Please try again later.");
     }
   };
 
@@ -48,27 +40,61 @@ export default function Signup() {
 
   return (
     <div className="flex background-image">
-      <form onSubmit={handleSubmit} className="bg-teal-500 bg-opacity-70 mx-auto p-10 rounded-lg">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-teal-500 bg-opacity-70 mx-auto p-10 rounded-lg"
+      >
         <p className="custom-text">Name</p>
-        <input onChange={onChange} type="text" name="name" value={credentials.name} placeholder="Enter your name" size="60" className="input-field" />
-
+        <input
+          onChange={onChange}
+          type="text"
+          name="name"
+          value={credentials.name}
+          placeholder="Enter your name"
+          className="input-field"
+        />
         <p className="custom-text">Email address</p>
-        <input onChange={onChange} type="email" name="email" value={credentials.email} placeholder="E-mail" size="60" className="input-field" />
-
+        <input
+          onChange={onChange}
+          type="email"
+          name="email"
+          value={credentials.email}
+          placeholder="E-mail"
+          className="input-field"
+        />
         <p className="custom-text">Address</p>
-        <input onChange={onChange} type="text" name="geolocation" value={credentials.geolocation} placeholder="Enter your full address" size="60" className="input-field" />
-
+        <input
+          onChange={onChange}
+          type="text"
+          name="geolocation"
+          value={credentials.geolocation}
+          placeholder="Enter your full address"
+          className="input-field"
+        />
         <p className="custom-text">Password</p>
-        <input onChange={onChange} type="password" name="password" value={credentials.password} placeholder="Password" size="60" className="input-field" />
-
-        {errorMessage && <p className="text-red-600">{errorMessage}</p>}
+        <input
+          onChange={onChange}
+          type="password"
+          name="password"
+          value={credentials.password}
+          placeholder="Password"
+          className="input-field"
+        />
         <br />
-
-        <button type="submit" className="font-serif font-bold mt-4 px-4 py-2 bg-teal-800 active:text-gray-500 text-white rounded-lg"> Submit
+        <button
+          type="submit"
+          className="font-serif font-bold mt-4 px-4 py-2 bg-teal-800 active:text-gray-500 text-white rounded-lg"
+        >
+          Submit
         </button>
-
-        <Link to="/login" className="font-serif font-bold px-4 ml-4 py-3 bg-red-800 active:text-gray- text-white rounded-lg">Already a User</Link>
+        <Link
+          to="/login"
+          className="font-serif font-bold px-4 ml-4 py-3 bg-red-800 active:text-gray-500 text-white rounded-lg"
+        >
+          Login
+        </Link>
       </form>
     </div>
   );
 }
+
