@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Screen/app.css";
 
-export default function Login() {
 
+export default function Login() {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5002/api/createuser", {
+      const response = await fetch("http://localhost:5002/api/LogIn", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,6 +27,13 @@ export default function Login() {
 
       const json = await response.json();
       alert(json.message);
+
+      if (json.success) {
+        localStorage.setItem("authToken",json.authToken);
+        console.log(localStorage.getItem("authToken"));
+        navigate("/"); 
+      }
+
     } catch (error) {
       console.error("Error:", error);
       alert("An error occurred. Please try again later.");
@@ -36,27 +45,33 @@ export default function Login() {
   };
 
   return (
-    <div className="flex background-image ">
-      <form className="bg-teal-500 bg-opacity-70 mx-auto p-10 rounded-lg">
-        <p className="custom-text">Email</p>
+    <div className="flex background-image">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-teal-500 bg-opacity-70 mx-auto p-10 rounded-lg"
+      >
+        <p className="custom-text">Email address</p>
         <input
+          onChange={onChange}
           type="email"
-          placeholder="Enter your Email"
-          size="60"
+          name="email"
+          value={credentials.email}
+          placeholder="E-mail"
           className="input-field"
         />
         <p className="custom-text">Password</p>
         <input
-          type="text"
+          onChange={onChange}
+          type="password"
+          name="password"
+          value={credentials.password}
           placeholder="Password"
-          size="60"
           className="input-field"
         />
-
         <br />
         <button
           type="submit"
-          className="font-serif font-bold  mt-4 px-4 py-2 bg-teal-800 active:text-gray-500 text-white rounded-lg"
+          className="font-serif font-bold mt-4 px-4 py-2 bg-teal-800 active:text-gray-500 text-white rounded-lg"
         >
           Submit
         </button>
@@ -70,3 +85,4 @@ export default function Login() {
     </div>
   );
 }
+

@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOpencart } from "@fortawesome/free-brands-svg-icons";
+import "./app.css";
 
 const Card = ({ imageSrc, title, price }) => {
   return (
@@ -21,7 +22,7 @@ const Card = ({ imageSrc, title, price }) => {
           </label>
           <select
             id="quantity"
-            className="focus:outline-none focus:border-teal-500 block px-5 py-1 appearance-none text-center border-2 border-teal-500 rounded-lg"
+            className="select-style"
             aria-label="Select quantity"
           >
             {Array.from(Array(6), (e, i) => (
@@ -35,18 +36,14 @@ const Card = ({ imageSrc, title, price }) => {
           <label htmlFor="size" className="block text-gray-700 sr-only">
             Size
           </label>
-          <select
-            id="size"
-            className="focus:outline-none focus:border-teal-500 block py-1 border-2 appearance-none px-4 border-teal-500 rounded-lg"
-            aria-label="Select size"
-          >
+          <select id="size" className="select-style">
             <option>Full</option>
             <option>Half</option>
           </select>
         </div>
         <div>
           <button
-            className="border-2 font-bold border-teal-500 rounded-lg px-2 py-1 flex items-center"
+            className="border-2 font-bold active:text-white active:bg-teal-500 border-teal-500 rounded-lg px-2 py-1 flex items-center"
             aria-label="Add to cart"
           >
             Add to

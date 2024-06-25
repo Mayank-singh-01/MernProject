@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Screen/app.css";
 
 export default function Signup() {
@@ -7,8 +7,10 @@ export default function Signup() {
     name: "",
     email: "",
     password: "",
-    geolocation: "",
+    geolocation: "",    
   });
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,6 +30,11 @@ export default function Signup() {
 
       const json = await response.json();
       alert(json.message);
+
+      if (json.success) {
+        navigate("/LogIn");
+      }
+
     } catch (error) {
       console.error("Error:", error);
       alert("An error occurred. Please try again later.");
@@ -97,4 +104,3 @@ export default function Signup() {
     </div>
   );
 }
-
