@@ -1,9 +1,9 @@
 .select-style {
   outline: none;
   cursor: pointer;
-  border: 2px solid #38b2ac; /* Assuming teal-500 is #38b2ac */
-  padding: 0.25rem 1rem; /* py-1 px-4 */
-  border-radius: 0.5rem; /* rounded-lg */
+  border: 2px solid #38b2ac; 
+  padding: 0.25rem 0.9rem; 
+  border-radius: 0.5rem; 
   display: block;
   appearance: none;
 }

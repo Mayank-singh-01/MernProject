@@ -3,19 +3,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOpencart } from "@fortawesome/free-brands-svg-icons";
 import "./app.css";
 
-const Card = ({ imageSrc, title, price }) => {
+const Card = ({ imageSrc, foodName, options }) => {
+
+  let priceOptions = Object.keys(options)
+
   return (
-    <div className="w-full text-teal-500 max-w-xs m-4 border-teal-500 border shadow-xl rounded-b-md">
+    <div className="w-full bg-gray-100 text-teal-500 max-w-xs xl:m-5 lg:m-5 md:m-5 shadow-xl rounded-xl">
       <img
-        className="w-full h-48 object-cover"
-        src={
-          imageSrc ||
-          "https://media.istockphoto.com/photos/paneer-tikka-at-skewers-in-black-bowl-at-dark-slate-background-paneer-picture-id1186759790?k=20&m=1186759790&s=612x612&w=0&h=e9MlX_7cZtq9_-ORGLPNU27VNP6SvDz7s-iwTxrf7wU="
-        }
+        className="w-full h-48 rounded-t-xl object-cover"
+        src={imageSrc}
         alt="Card image"
+        style={{ width: "400px", height: "200px" }}
       />
       <div className="pt-2 text-center font-semibold text-red-700 font-serif text-xl">
-        {title || "Card title"}
+        {foodName || "Card title"}
       </div>
 
       <div className="pt-3 flex font-bold justify-evenly">
@@ -40,13 +41,19 @@ const Card = ({ imageSrc, title, price }) => {
             Size
           </label>
           <select id="size" className="select-style">
-            <option>Full</option>
-            <option>Half</option>
+            {priceOptions.map((data) => {
+              return (
+                <option key={data} value={data}>
+                  {" "}
+                  {data}{" "}
+                </option>
+              );
+            })}
           </select>
         </div>
         <div>
           <button
-            className="border-2 font-bold active:text-white active:bg-teal-500 border-teal-500 rounded-lg px-2 py-1 flex items-center"
+            className="border-2 font-bold bg-white active:text-white active:bg-teal-500 border-teal-500 rounded-lg px-2 py-1 flex items-center"
             aria-label="Add to cart"
           >
             Add to
@@ -60,7 +67,7 @@ const Card = ({ imageSrc, title, price }) => {
       </div>
       <div>
         <p className="text-lg font-bold text-center text-teal-500 mb-2">
-          Price : ₹{price || "99.9"}
+          Price : ₹{"99.9"}
         </p>
       </div>
     </div>

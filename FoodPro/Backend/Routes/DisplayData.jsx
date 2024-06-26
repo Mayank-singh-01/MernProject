@@ -1,27 +1,14 @@
-// const express = require("express");
-// const router = express.Router();
-
-// router.post('/foodData',(req,res)=>{
-//    try {
-//       res.send(global.foodData);
-//        console.log(global.foodData);
-//    } catch (error) {
-//       res.send("server error")
-//    }
-// });
-
-// module.exports = router;
-
 const express = require("express");
 const router = express.Router();
 
 router.post("/foodData", (req, res) => {
   try {
-    if (!global.foodData) {
-      return res.status(500).send("Food data not loaded");
+    if (!global.foodData || !global.foodCategory) {
+      return res.status(500).send("Food data or category not loaded");
     }
-    res.send(global.foodData);
-    console.log(global.foodData);
+    res.send({ foodData: global.foodData, foodCategory: global.foodCategory });
+   //  console.log("Food Data:", global.foodData);
+   //  console.log("Food Category:", global.foodCategory);
   } catch (error) {
     console.error("Server error:", error);
     res.status(500).send("Server error");
@@ -29,4 +16,3 @@ router.post("/foodData", (req, res) => {
 });
 
 module.exports = router;
-
