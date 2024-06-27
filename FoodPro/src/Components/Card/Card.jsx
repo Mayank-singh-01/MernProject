@@ -13,7 +13,7 @@ const Card = ({ imageSrc, foodName, options }) => {
         className="w-full h-48 rounded-t-xl object-cover"
         src={imageSrc}
         alt="Card image"
-        style={{ width: "400px", height: "200px" }}
+        style={{ width: "400px", }}
       />
       <div className="pt-2 text-center font-semibold text-red-700 font-serif text-xl">
         {foodName || "Card title"}

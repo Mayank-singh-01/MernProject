@@ -1,0 +1,31 @@
+
+.custom-button {
+   font-family: serif;
+   color: white;
+   background-color: #8b0000;
+   margin-left: 1rem;
+   margin-right: 1rem;
+   border-radius: 0.5rem;
+   padding: 0.5rem;
+   transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-button:active {
+   background-color: white;
+   color: #38b2ac;
+}
+.custom-button2 {
+   font-family: serif;
+   color: #38b2ac;
+   background-color: white;
+   margin-left: 1rem;
+   margin-right: 1rem;
+   border-radius: 0.5rem;
+   padding: 0.5rem;
+   transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-button2:active {
+   background-color: #38b2ac;
+   color: white;
+}
