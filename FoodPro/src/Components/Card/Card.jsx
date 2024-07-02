@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faOpencart } from "@fortawesome/free-brands-svg-icons";
 import "./app.css";
+import { useDispatchCart, useCart } from "../ContextReducer/ContextReducer";
 
-const Card = ({ imageSrc, foodName, options }) => {
-
-  let priceOptions = Object.keys(options)
+const Card = ({ foodItem, options }) => {
+  let priceOptions = Object.keys(options);
+  let dispatch = useDispatchCart();
+  const [qty, setqty] = useState(1);
+  const [size, setsize] = useState("");
+  const handleAddToCart = async () => {
+    await dispatch({
+      type: "ADD",
+      id: foodItem._id,
+      name: foodItem.name,
+      price: foodItem.price,
+      qty: qty,
+      size: size,
+    });
+  };
 
   return (
     <div className="w-full bg-gray-100 text-teal-500 max-w-xs xl:m-5 lg:m-5 md:m-5 shadow-xl rounded-xl">
       <img
         className="w-full h-48 rounded-t-xl object-cover"
-        src={imageSrc}
+        src={foodItem.img}
         alt="Card image"
-        style={{ width: "400px", }}
+        style={{ width: "400px" }}
       />
       <div className="pt-2 text-center font-semibold text-red-700 font-serif text-xl">
-        {foodName || "Card title"}
+        {foodItem.name || "Card title"}
       </div>
 
       <div className="pt-3 flex font-bold justify-evenly">
@@ -44,8 +57,7 @@ const Card = ({ imageSrc, foodName, options }) => {
             {priceOptions.map((data) => {
               return (
                 <option key={data} value={data}>
-                  {" "}
-                  {data}{" "}
+                  {data}
                 </option>
               );
             })}
@@ -59,6 +71,7 @@ const Card = ({ imageSrc, foodName, options }) => {
             Add to
             <FontAwesomeIcon
               icon={faOpencart}
+              onClick={handleAddToCart}
               className="ml-1"
               style={{ width: "20px", height: "20px" }}
             />

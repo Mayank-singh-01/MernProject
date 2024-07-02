@@ -1,17 +1,17 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Footer from './Components/Footer/Footer'
-import Header from './Components/Header/Header'
-
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/Header";
+import { CartProvider } from "./Components/ContextReducer/ContextReducer";
 
 function App() {
   return (
-    <>
-    <Header/>
-    <Outlet/>
-    <Footer/>
-    </>
-  )
+    <CartProvider>
+      <Header />
+      <Outlet />
+      <Footer />
+    </CartProvider>
+  );
 }
 
-export default App
+export default App;

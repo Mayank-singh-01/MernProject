@@ -13,22 +13,25 @@ import MyOrder from "./Components/MyOrder/MyOrder";
 import Signup from "./Components/Screen/Signup";
 import Login from "./Components/Screen/Lgin";
 import MyCart from "./Components/Screen/MyCart";
+import { CartProvider } from "./Components/ContextReducer/ContextReducer";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route path="" element={<Home />} />
-      <Route path="MyOrder" element={<MyOrder />} />
-      <Route path="CreatUser" element={<Signup />} />
-      <Route path="MyOrder" element={<MyOrder />} />
-      <Route path="LogIn" element={<Login />} />
-      <Route path="MyCart" element={<MyCart />} />
-    </Route>
+    // <CartProvider>
+      <Route path="/" element={<App />}>
+        <Route path="" element={<Home />} />
+        <Route path="CreatUser" element={<Signup />} />
+        <Route path="MyOrder" element={<MyOrder />} />
+        <Route path="LogIn" element={<Login />} />
+        <Route path="MyCart" element={<MyCart />} />
+      </Route>
+    //  </CartProvider> 
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>
 );
+
