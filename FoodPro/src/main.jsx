@@ -17,7 +17,6 @@ import { CartProvider } from "./Components/ContextReducer/ContextReducer";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    // <CartProvider>
       <Route path="/" element={<App />}>
         <Route path="" element={<Home />} />
         <Route path="CreatUser" element={<Signup />} />
@@ -25,7 +24,6 @@ const router = createBrowserRouter(
         <Route path="LogIn" element={<Login />} />
         <Route path="MyCart" element={<MyCart />} />
       </Route>
-    //  </CartProvider> 
   )
 );
 

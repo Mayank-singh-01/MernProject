@@ -21,6 +21,7 @@ connectMongoDB()
     // Routes
     app.use("/api", require("./Routes/CreatUser.jsx"));
     app.use("/api", require("./Routes/DisplayData.jsx"));
+    app.use("/api", require("./Routes/orderRouter.jsx")); // Add this line
 
     app.get("/", (req, res) => {
       res.send("Hello, Mayank this side");
