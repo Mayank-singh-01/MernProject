@@ -6,7 +6,7 @@
    margin-left: 1rem;
    margin-right: 1rem;
    border-radius: 0.5rem;
-   padding: 0.35rem;
+   padding: 0.3rem 0.5rem;
    transition: background-color 0.3s, color 0.3s;
 }
 
@@ -17,15 +17,14 @@
 .custom-button2 {
    font-family: serif;
    color: #38b2ac;
-   background-color: white;
-   margin-left: 1rem;
-   margin-right: 1rem;
+   background-color: whitesmoke;
+   margin: 0 1rem;
    border-radius: 0.5rem;
-   padding: 0.35rem;
+   padding: 0.2rem 0.5rem;
    transition: background-color 0.3s, color 0.3s;
 }
 
-.custom-button2:active {
+.custom-button2:hover {
    background-color: #7c0707;
    color: white;
 }
@@ -37,3 +36,5 @@
    margin-left: 0.15rem;
    font-size: 1rem;
 }
+
+

@@ -154,10 +154,12 @@ const MyCart = () => {
                 className="h-20 w-32 object-cover rounded"
               />
               <div className="flex flex-col flex-grow ml-4">
-                <h3 className="text-xl font-semibold">{item.name}</h3>
-                <p>Quantity: {item.qty}</p>
-                <p>Size: {item.size}</p>
-                <p>Price: ₹{item.price}</p>
+                <h3 className="text-xl font-serif text-teal-600 font-semibold">
+                  {item.name}
+                </h3>
+                <p className="text-red-700">Quantity: {item.qty}</p>
+                <p className="text-red-700">Size: {item.size}</p>
+                <p className="text-red-700">Price: ₹{item.price}</p>
               </div>
               <button
                 onClick={() => handleRemove(item)}

@@ -28,9 +28,12 @@ const MyOrder = () => {
         <div className="flex-grow">
           {orders.map((order, index) => (
             <div key={index} className="mb-4 border-b pb-2">
-              <h3 className="text-xl font-semibold">Order #{index + 1}</h3>
-              <p>Date: {new Date(order.date).toLocaleString()}</p>
-              <p>Total Amount: ₹{order.totalAmount}</p>
+              <h3 className="text-xl text-center text-red-700 font-semibold">
+                Order #{index + 1}
+              </h3>
+              <p className="text-teal-600">
+                Date: {new Date(order.date).toLocaleString()}
+              </p>
               <div>
                 {order.items.map((item, idx) => (
                   <div
@@ -43,13 +46,18 @@ const MyOrder = () => {
                       className="h-20 w-32 object-cover rounded"
                     />
                     <div className="flex flex-col flex-grow ml-4">
-                      <h4 className="text-lg">{item.name}</h4>
-                      <p>Quantity: {item.qty}</p>
-                      <p>Size: {item.size}</p>
-                      <p>Price: ₹{item.price}</p>
+                      <h4 className="text-lg text-teal-600 font-serif font-bold">
+                        {item.name}
+                      </h4>
+                      <p className="text-red-700">Quantity: {item.qty}</p>
+                      <p className="text-red-700">Size: {item.size}</p>
+                      <p className="text-red-700">Price: ₹{item.price}</p>
                     </div>
                   </div>
                 ))}
+                <p className="text-center text-teal-600 font-bold mb-5">
+                  Total Amount: ₹{order.totalAmount}
+                </p>
               </div>
             </div>
           ))}
